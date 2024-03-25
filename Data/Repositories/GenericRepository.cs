@@ -76,5 +76,17 @@ namespace ProductsManagement.Data.Repositories
         {
            return _Context.Set<T>().FirstOrDefaultAsync(filter);
         }
+
+        public async Task DeleteAsync(Expression<Func<T, bool>> filter)
+        {
+           T entity = GetSingle(filter);
+           _Context.Set<T>().Remove(entity);
+        }
+
+        private T GetSingle(Expression<Func<T, bool>>? filter = null,
+            Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null)
+        {
+            return  GetQueryable(filter, include).FirstOrDefault();
+        }
     }
 }

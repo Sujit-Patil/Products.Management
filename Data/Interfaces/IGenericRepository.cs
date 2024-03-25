@@ -29,6 +29,8 @@ namespace ProductsManagement.Data.Interfaces
         /// <returns></returns>
         public void Delete(T toDelete);
 
+        public Task DeleteAsync(Expression<Func<T, bool>> filter);
+
         /// <summary>
         /// Get Entity.
         /// </summary>
