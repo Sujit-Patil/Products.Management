@@ -19,5 +19,12 @@ namespace ProductsManagement.Api.Service.Controllers
         {
             await _productService.AddProductAsyns(product);
         }
+
+        [HttpGet]
+        [Route("GetAllProducts")]
+        public List<Product> GetAllProducts()
+        {
+           return _productService.GetAllProductAsync();
+        }
     }
 }
