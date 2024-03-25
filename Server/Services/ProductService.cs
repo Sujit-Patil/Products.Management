@@ -30,15 +30,16 @@ namespace ProductsManagement.Api.Service.Services
                 FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public  List<Product> GetAllProductAsync()
+        public List<Product> GetAllProducts()
         {
-            return  (List<Product>)_productRepository.GetAll();
+            var productList = _productRepository.GetAll();
+            return (List<Product>)productList;
         }
 
-        public void DeleteProduct(Product product)
+        public async Task DeleteProductAsync(Product product)
         {
             _productRepository.Delete(product);
-            _productRepository.CompleteAsync();
+            await _productRepository.CompleteAsync();
         }
     }
 }

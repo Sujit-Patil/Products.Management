@@ -15,6 +15,7 @@ namespace ProductsManagement.Api.Service.Controllers
         }
 
         [HttpPost]
+        [Route("AddProduct")]
         public async Task AddProductAsync(Product product)
         {
             await _productService.AddProductAsyns(product);
@@ -24,7 +25,28 @@ namespace ProductsManagement.Api.Service.Controllers
         [Route("GetAllProducts")]
         public List<Product> GetAllProducts()
         {
-           return _productService.GetAllProductAsync();
+           return _productService.GetAllProducts();
+        }
+
+        [HttpGet]
+        [Route("GetProductById")]
+        public async Task<Product?> GetProductById(int id)
+        {
+            return await _productService.GetProductByIdAsync(id);
+        }
+
+        [HttpPut]
+        [Route("UpdateProduct")]
+        public async Task UpdateProduct(Product product)
+        {
+             await _productService.UpdateProductAsync(product);
+        }
+
+        [HttpDelete]
+        [Route("DeleteProduct")]
+        public async Task DeleteProductAsync(Product product)
+        {
+           await _productService.DeleteProductAsync(product);
         }
     }
 }
