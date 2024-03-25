@@ -1,6 +1,18 @@
-using Microsoft.AspNetCore.ResponseCompression;
+using ProductsManagement.Api.Service.Interfaces;
+using ProductsManagement.Api.Service.Services;
+using ProductsManagement.Data.Interfaces;
+using ProductsManagement.Data.Repositories;
+using YourNamespace.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
+// Configuration
+builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
+// Add services to the container.
+builder.Services.AddCustomDbContext(builder.Configuration);
+// Add services to the container.
+builder.Services.AddTransient<IProductRepository, ProductRepository>();
+builder.Services.AddTransient<IProductService, ProductService>();
 
 // Add services to the container.
 
