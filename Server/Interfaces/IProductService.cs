@@ -1,6 +1,6 @@
 ﻿using ProductsManagement.Data.Models;
 
-namespace ProductsManagement.Api.Service.Interfaces
+namespace Products.Management.ApiService.Interfaces
 {
     public interface IProductService
     {

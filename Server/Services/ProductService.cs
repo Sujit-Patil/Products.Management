@@ -1,8 +1,8 @@
-﻿using ProductsManagement.Api.Service.Interfaces;
+﻿using Products.Management.ApiService.Interfaces;
 using ProductsManagement.Data.Interfaces;
 using ProductsManagement.Data.Models;
 
-namespace ProductsManagement.Api.Service.Services
+namespace Products.Management.ApiService
 {
     public class ProductService : IProductService
     {
