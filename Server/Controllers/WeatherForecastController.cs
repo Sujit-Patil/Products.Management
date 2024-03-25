@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Products.Management.Shared;
 
-namespace Products.Management.Server.Controllers
+namespace Products.Management.ApiService.Controllers
 {
     [ApiController]
     [Route("[controller]")]

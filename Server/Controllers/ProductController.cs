@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ProductsManagement.Api.Service.Interfaces;
+using Products.Management.ApiService.Interfaces;
 using ProductsManagement.Data.Models;
 
-namespace ProductsManagement.Api.Service.Controllers
+namespace Products.Management.ApiService.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

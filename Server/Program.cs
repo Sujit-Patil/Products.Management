@@ -1,5 +1,5 @@
-using ProductsManagement.Api.Service.Interfaces;
-using ProductsManagement.Api.Service.Services;
+using Products.Management.ApiService;
+using Products.Management.ApiService.Interfaces;
 using ProductsManagement.Data.Interfaces;
 using ProductsManagement.Data.Repositories;
 using YourNamespace.Extensions;
