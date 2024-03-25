@@ -1,4 +1,6 @@
 ﻿@page "/counter"
+@using ProductsManagement.Data.Models;
+@inject HttpClient httpclient;
 
 <PageTitle>Counter</PageTitle>
 
@@ -8,8 +10,37 @@
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
+@if (products != null && products.Count != 0)
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Description</td>
+                <td>Price</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in products)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.Description</td>
+                    <td>@product.Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
 @code {
     private int currentCount = 0;
+    private List<Product>? products;
+
+    protected override async Task OnInitializedAsync()
+    {
+        products = await httpclient.GetFromJsonAsync<List<Product>>("api/Product/GetAllProducts");
+        await base.OnInitializedAsync();
+    }
 
     private void IncrementCount()
     {
